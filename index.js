@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
     res.send('<h1> Hello from deployed version</h1>')
 })
 
+app.get('/new',(req,res)=>{
+    res.send('<h1>Hello from new route</h1>')
+})
+
 app.listen(PORT, () =>{
     console.log(`Server running on port ${PORT}`)
 })
