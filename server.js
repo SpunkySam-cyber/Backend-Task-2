@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+
+
 // Routes
 import authRoutes from './routes/auth.js';
 import protectedRoutes from './routes/protected.js';
@@ -12,6 +14,8 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+
 
 // Connect to MongoDB (use a cloud DB, e.g. MongoDB Atlas)
 mongoose.connect(process.env.MONGO_URI, {
@@ -41,3 +45,6 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+import favicon from 'serve-favicon';
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
